@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing-Colors</title>
+</head>
+<body>
+    <button id="color-change-stop">stop</button>
+    <script>
+
+        let blueColor = true;
+    
+        let intervalId;
+        
+        function colorChange(){
+            
+            if(blueColor){
+                document.body.style.backgroundColor = 'red'; 
+                blueColor = false;
+            }else{
+                document.body.style.backgroundColor = 'blue'; 
+                blueColor = true;        
+            }   
+        
+        }
+
+        intervalId = setInterval(colorChange,1000);
+
+        document.getElementById('color-change-stop').addEventListener('click',function(){
+            clearInterval(intervalId);
+        })
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic-Color-Flipper</title>
+</head>
+<body>
+    <button id="switch-color-flipper">switch</button>
+    <script>
+        let flipper = true;
+        let intervalId;
+        function colorFlip() {
+            const randomColor = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+            document.body.style.backgroundColor = randomColor;
+        }
+
+      
+        // intervalId = setInterval(colorFlip, 1000);
+      
+        console.log(intervalId);
+        // console.log('initial flipper value:',flipper);
+
+        document.getElementById('switch-color-flipper').addEventListener('click',function(){
+            if(flipper == false){
+                intervalId = setInterval(colorFlip,1000)
+                flipper = true;
+            }else if(flipper){
+                clearInterval(intervalId);
+                flipper = false;
+            }   
+        })
+       
+ 
+    </script>
+
+</body>
+
+</html>
